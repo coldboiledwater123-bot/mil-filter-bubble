@@ -93,20 +93,20 @@ export default function Home() {
 
 /** 互动泡泡 —— 散布全屏边角，肥皂泡上升效果，点击戳破 */
 function BubbleField() {
-  /* 尺寸 75-130：手机（375px 宽）约占 1/5-1/3，桌面也不显大 */
+  /* 尺寸跨度大（45-155），模拟远近大小不一的自然泡泡群 */
   const bubbles = [
-    { size:  90, left: '0%',  top: '5%',  anim: 'animate-bubble-rise',       delay: '0s' },
-    { size: 120, left: '10%', top: '62%', anim: 'animate-bubble-rise-slow',  delay: '2s' },
-    { size:  80, left: '45%', top: '2%',  anim: 'animate-bubble-rise',       delay: '1s' },
-    { size: 110, left: '78%', top: '6%',  anim: 'animate-bubble-rise-slow',  delay: '3.5s' },
-    { size: 100, left: '2%',  top: '35%', anim: 'animate-bubble-rise-slow',  delay: '1.5s' },
-    { size:  85, left: '68%', top: '55%', anim: 'animate-bubble-rise',       delay: '0.7s' },
-    { size: 115, left: '30%', top: '74%', anim: 'animate-bubble-rise-slow',  delay: '4s' },
-    { size:  78, left: '40%', top: '40%', anim: 'animate-bubble-rise',       delay: '2.8s' },
-    { size: 130, left: '84%', top: '32%', anim: 'animate-bubble-rise-slow',  delay: '5s' },
-    { size: 105, left: '16%', top: '16%', anim: 'animate-bubble-rise',       delay: '3.2s' },
-    { size:  82, left: '54%', top: '26%', anim: 'animate-bubble-rise',       delay: '1.8s' },
-    { size:  98, left: '6%',  top: '80%', anim: 'animate-bubble-rise-slow',  delay: '0.4s' },
+    { size: 140, left: '0%',  top: '3%',  anim: 'animate-bubble-rise',       delay: '0s' },
+    { size:  55, left: '16%', top: '58%', anim: 'animate-bubble-rise-slow',  delay: '2s' },
+    { size:  48, left: '42%', top: '2%',  anim: 'animate-bubble-rise',       delay: '1s' },
+    { size:  70, left: '80%', top: '4%',  anim: 'animate-bubble-rise-slow',  delay: '3.5s' },
+    { size: 155, left: '2%',  top: '32%', anim: 'animate-bubble-rise-slow',  delay: '1.5s' },
+    { size:  52, left: '70%', top: '50%', anim: 'animate-bubble-rise',       delay: '0.7s' },
+    { size:  45, left: '32%', top: '70%', anim: 'animate-bubble-rise-slow',  delay: '4s' },
+    { size:  62, left: '38%', top: '36%', anim: 'animate-bubble-rise',       delay: '2.8s' },
+    { size:  90, left: '86%', top: '30%', anim: 'animate-bubble-rise-slow',  delay: '5s' },
+    { size: 130, left: '14%', top: '12%', anim: 'animate-bubble-rise',       delay: '3.2s' },
+    { size:  58, left: '56%', top: '22%', anim: 'animate-bubble-rise',       delay: '1.8s' },
+    { size: 100, left: '8%',  top: '78%', anim: 'animate-bubble-rise-slow',  delay: '0.4s' },
   ]
 
   return (
