@@ -6,7 +6,12 @@ import Bubble3D from '../components/Bubble3D'
  */
 export default function Home() {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-cream">
+    <div
+      className="relative min-h-screen overflow-hidden"
+      style={{
+        background: 'radial-gradient(ellipse at 50% 40%, #c9deec 0%, #a3c4d8 60%, #8aafc7 100%)',
+      }}
+    >
       <style>{`
         @keyframes bubble-rise {
           0% {
