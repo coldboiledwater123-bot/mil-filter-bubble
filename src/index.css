@@ -1,0 +1,185 @@
+@import "tailwindcss";
+
+/* =========================================================
+   Warm Bubbles 主题系统 · 清新天蓝变体（已选定为全站主风格）
+   tokens 映射：
+   - cream   页面背景（极浅蓝白，清新）
+   - cocoa   主文字（深蓝灰，冷调）
+   - clay    次要文字（冷灰蓝）
+   - lagoon  主色/CTA（天蓝偏青）
+   - mint    辅助色/选中（薄荷绿）
+   - peach   边框/点缀（浅雾蓝）
+   ========================================================= */
+@theme {
+  --font-sans: 'Nunito', system-ui, -apple-system, sans-serif;
+  --font-display: 'Nunito', system-ui, sans-serif;
+
+  --color-cream: #f2fafd;
+  --color-cocoa: #22333b;
+  --color-clay: #7d95a3;
+  --color-lagoon: #14b8d6;
+  --color-mint: #2fd4a8;
+  --color-peach: #cfe9f4;
+
+  /* 气泡浮动动画 */
+  --animate-bob: bob 5s ease-in-out infinite;
+  --animate-bob-slow: bob 7s ease-in-out infinite;
+  --animate-rise: rise 12s linear infinite;
+
+  /* 模拟器信息流动画 */
+  --animate-post-in: post-in 0.4s ease-out;
+  --animate-post-out: post-out 0.3s ease-in forwards;
+  --animate-pop: pop 0.45s ease-out;
+  --animate-think: think 1.2s ease-in-out infinite;
+  --animate-toast-in: toast-in 0.35s ease-out;
+  --animate-burst-out: burst-out 1.2s ease-out forwards;
+  --animate-glow-pulse: glow-pulse 3s ease-in-out infinite;
+  --animate-fade-up: fade-up 0.7s ease-out;
+  --animate-float-around: float-around 8s ease-in-out infinite;
+
+  @keyframes bob {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+
+  @keyframes rise {
+    0% {
+      transform: translateY(110vh) scale(0.6);
+      opacity: 0;
+    }
+    8% {
+      opacity: 0.5;
+    }
+    92% {
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateY(-10vh) scale(1.1);
+      opacity: 0;
+    }
+  }
+
+  @keyframes post-in {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes post-out {
+    from {
+      opacity: 1;
+      transform: none;
+    }
+    to {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+  }
+
+  @keyframes pop {
+    0% {
+      transform: scale(1);
+    }
+    45% {
+      transform: scale(1.7);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes think {
+    0%,
+    100% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes toast-in {
+    from {
+      opacity: 0;
+      transform: translateY(18px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes burst-out {
+    0% {
+      opacity: 0.8;
+      transform: translate(0, 0) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(var(--bx), var(--by)) scale(0);
+    }
+  }
+
+  @keyframes glow-pulse {
+    0%,
+    100% {
+      box-shadow: 0 0 50px rgba(20, 184, 214, 0.15), 0 0 100px rgba(20, 184, 214, 0.05);
+    }
+    50% {
+      box-shadow: 0 0 70px rgba(20, 184, 214, 0.25), 0 0 140px rgba(20, 184, 214, 0.1);
+    }
+  }
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float-around {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+    25% {
+      transform: translate(15px, -20px) scale(1.05);
+    }
+    50% {
+      transform: translate(-10px, -35px) scale(0.95);
+    }
+    75% {
+      transform: translate(-20px, -10px) scale(1.02);
+    }
+  }
+
+}
+
+body {
+  margin: 0;
+  background: var(--color-cream);
+}
+
+/* 地区卡片无限轮播 —— 定义在 @theme 外部以保证 @keyframes 被输出 */
+@keyframes carousel-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
