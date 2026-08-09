@@ -559,25 +559,34 @@ function FooterCTA() {
 function BubbleField() {
   const bubbles = [
     /* 左侧 */
-    { size: 85, left: '5%',  top: '2%',  delay: '0s' },
-    { size: 50, left: '8%',  top: '12%', delay: '3.1s' },
-    { size: 110, left: '6%',  top: '22%', delay: '2s' },
-    { size: 60, left: '10%', top: '35%', delay: '4.5s' },
-    { size: 65, left: '7%',  top: '48%', delay: '1s' },
-    { size: 95, left: '5%',  top: '58%', delay: '3.5s' },
-    { size: 45, left: '9%',  top: '68%', delay: '0.3s' },
-    { size: 75, left: '6%',  top: '80%', delay: '1.5s' },
-    { size: 55, left: '8%',  top: '90%', delay: '5.2s' },
+    { size: 120, left: '4%',  top: '1%',  delay: '0s' },
+    { size: 70,  left: '8%',  top: '8%',  delay: '3.1s' },
+    { size: 55,  left: '3%',  top: '14%', delay: '1.8s' },
+    { size: 140, left: '10%', top: '20%', delay: '2s' },
+    { size: 90,  left: '5%',  top: '28%', delay: '4.5s' },
+    { size: 65,  left: '11%', top: '36%', delay: '0.6s' },
+    { size: 100, left: '6%',  top: '42%', delay: '1s' },
+    { size: 130, left: '9%',  top: '50%', delay: '3.5s' },
+    { size: 60,  left: '4%',  top: '58%', delay: '2.2s' },
+    { size: 80,  left: '12%', top: '65%', delay: '0.3s' },
+    { size: 110, left: '7%',  top: '74%', delay: '1.5s' },
+    { size: 50,  left: '3%',  top: '82%', delay: '4.1s' },
+    { size: 95,  left: '10%', top: '88%', delay: '5.2s' },
+    { size: 75,  left: '6%',  top: '95%', delay: '2.7s' },
     /* 右侧 */
-    { size: 100, left: '83%', top: '5%',  delay: '0.7s' },
-    { size: 55, left: '86%', top: '16%', delay: '2.4s' },
-    { size: 70, left: '80%', top: '28%', delay: '4s' },
-    { size: 115, left: '84%', top: '38%', delay: '2.8s' },
-    { size: 50, left: '87%', top: '50%', delay: '1.2s' },
-    { size: 80, left: '82%', top: '60%', delay: '5s' },
-    { size: 65, left: '85%', top: '72%', delay: '3.8s' },
-    { size: 90, left: '81%', top: '82%', delay: '3.2s' },
-    { size: 45, left: '86%', top: '93%', delay: '0.8s' },
+    { size: 135, left: '82%', top: '3%',  delay: '0.7s' },
+    { size: 60,  left: '87%', top: '10%', delay: '2.4s' },
+    { size: 100, left: '80%', top: '18%', delay: '4s' },
+    { size: 70,  left: '89%', top: '26%', delay: '1.1s' },
+    { size: 145, left: '84%', top: '34%', delay: '2.8s' },
+    { size: 55,  left: '81%', top: '42%', delay: '3.6s' },
+    { size: 85,  left: '88%', top: '50%', delay: '1.2s' },
+    { size: 115, left: '83%', top: '58%', delay: '5s' },
+    { size: 65,  left: '90%', top: '66%', delay: '0.4s' },
+    { size: 130, left: '85%', top: '74%', delay: '3.8s' },
+    { size: 50,  left: '82%', top: '82%', delay: '2.1s' },
+    { size: 105, left: '87%', top: '88%', delay: '3.2s' },
+    { size: 80,  left: '80%', top: '95%', delay: '0.8s' },
   ]
 
   return (
@@ -603,7 +612,7 @@ function BubbleField() {
             animationDelay: b.delay,
           }}
         >
-          <Bubble3D size={b.size} />
+          <Bubble3D size={b.size} className="scale-[0.45] sm:scale-90 md:scale-100" />
         </div>
       ))}
     </div>
