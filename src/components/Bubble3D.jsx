@@ -51,10 +51,11 @@ export default function Bubble3D({ size = 200, className = '' }) {
           style={{ width: size, height: size }}
           aria-label="Click to pop the bubble"
         >
-          {/* ── 白色轮廓边 ── */}
+          {/* ── 主体微白底，让泡泡可见 ── */}
           <span
             className="absolute inset-0 animate-bob-slow rounded-full"
             style={{
+              background: 'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.08) 100%)',
               boxShadow: `
                 inset 0 0 0 2px rgba(255,255,255,0.55),
                 0 0 0 1px rgba(255,255,255,0.30)
@@ -62,41 +63,26 @@ export default function Bubble3D({ size = 200, className = '' }) {
             }}
           />
 
-          {/* ── 不规则油膜色斑（偏移椭圆模拟薄膜干涉）── */}
+          {/* ── 左上角一小片彩虹色斑 ── */}
           <span
             className="absolute inset-0 rounded-full"
             style={{
               background: `
-                radial-gradient(ellipse 35% 28% at 22% 32%, rgba(245,120,170,0.32) 0%, transparent 100%),
-                radial-gradient(ellipse 28% 22% at 68% 28%, rgba(130,200,245,0.28) 0%, transparent 100%),
-                radial-gradient(ellipse 30% 25% at 75% 62%, rgba(140,235,175,0.30) 0%, transparent 100%),
-                radial-gradient(ellipse 25% 20% at 30% 70%, rgba(245,200,110,0.24) 0%, transparent 100%),
-                radial-gradient(ellipse 20% 18% at 55% 48%, rgba(210,160,255,0.18) 0%, transparent 100%)
+                radial-gradient(ellipse 28% 22% at 24% 26%, rgba(245,140,180,0.25) 0%, transparent 100%),
+                radial-gradient(ellipse 20% 16% at 30% 22%, rgba(140,210,245,0.18) 0%, transparent 100%)
               `,
             }}
           />
 
-          {/* ── 小锐利高光（模拟点光源）── */}
+          {/* ── 小锐利高光 ── */}
           <span
             className="pointer-events-none absolute rounded-full"
             style={{
-              left: '28%',
-              top: '22%',
+              left: '26%',
+              top: '20%',
               width: '10%',
               height: '9%',
               background: 'radial-gradient(ellipse at 40% 35%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.4) 30%, transparent 70%)',
-            }}
-          />
-
-          {/* ── 底部微弱二次高光 ── */}
-          <span
-            className="pointer-events-none absolute rounded-full"
-            style={{
-              right: '22%',
-              bottom: '20%',
-              width: '6%',
-              height: '5%',
-              background: 'radial-gradient(ellipse at 40% 35%, rgba(255,255,255,0.5) 0%, transparent 70%)',
             }}
           />
         </button>
