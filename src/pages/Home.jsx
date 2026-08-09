@@ -3,7 +3,7 @@ import ParticleText from '../components/ParticleText'
 
 export default function Home() {
   return (
-    <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-cream px-6 text-center">
+    <div className="relative flex min-h-screen flex-col items-center overflow-hidden bg-cream px-6 pt-[10vh] text-center sm:pt-[14vh] md:pt-[18vh]">
       <style>{`
         @keyframes fade-in-up {
           from { opacity: 0; transform: translateY(30px); }
@@ -16,7 +16,7 @@ export default function Home() {
       `}</style>
 
       {/* 粒子文本 */}
-      <div className="h-[180px] w-full max-w-4xl sm:h-[260px] md:h-[320px]">
+      <div className="h-[200px] w-full max-w-5xl sm:h-[300px] md:h-[380px]">
         <ParticleText
           text="Are you in filter Bubbles?"
           color="#22333b"
@@ -26,7 +26,7 @@ export default function Home() {
           scatter={200}
           gatherDuration={1800}
           stagger={380}
-          fontSize="clamp(2rem, 8vw, 6rem)"
+          fontSize="clamp(2.8rem, 10vw, 7.5rem)"
           fontWeight={900}
           glow={true}
         />

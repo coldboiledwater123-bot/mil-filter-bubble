@@ -422,6 +422,27 @@ function RegionDetail({ region }) {
   )
 }
 
+/* ================= Act CTA ================= */
+
+function ActCTA() {
+  return (
+    <section className="bg-cream px-6 py-20 text-center md:py-28">
+      <h2 className="font-display text-4xl font-extrabold text-cocoa md:text-5xl">
+        Ready to act?
+      </h2>
+      <p className="mx-auto mt-4 max-w-xl text-xl leading-relaxed text-clay">
+        Tools, checklists, and a 7-day challenge — all free.
+      </p>
+      <Link
+        to="/act"
+        className="mt-8 inline-block rounded-full bg-lagoon px-14 py-5 text-2xl font-extrabold text-white shadow-xl shadow-lagoon/40 transition-all hover:-translate-y-0.5 hover:shadow-lagoon/60"
+      >
+        Break your bubble →
+      </Link>
+    </section>
+  )
+}
+
 /* ================= 联系我们 ================= */
 
 function ContactFooter() {
@@ -435,7 +456,6 @@ function ContactFooter() {
         to hear from you.
       </p>
 
-      {/* 邮箱 */}
       <a
         href="mailto:coldboiledwater123@gmail.com"
         className="mt-8 inline-flex items-center gap-2 rounded-full bg-white/10 px-6 py-3 text-base font-bold text-lagoon backdrop-blur-sm transition-all hover:bg-white/20 hover:text-mint sm:px-8 sm:text-lg"
@@ -447,19 +467,6 @@ function ContactFooter() {
       <p className="mt-6 text-base font-semibold text-clay/50">
         We read every message. Response within 48 hours.
       </p>
-
-      {/* 底部 CTA 跳转 Act */}
-      <div className="mt-16">
-        <Link
-          to="/act"
-          className="inline-block rounded-full bg-lagoon px-14 py-5 text-2xl font-extrabold text-white shadow-xl shadow-lagoon/40 transition-all hover:-translate-y-0.5 hover:shadow-lagoon/60"
-        >
-          Ready to act? →
-        </Link>
-        <p className="mt-4 text-sm font-semibold text-clay/50">
-          Tools, checklists, and a 7-day challenge — all free.
-        </p>
-      </div>
     </footer>
   )
 }
@@ -708,6 +715,8 @@ export default function Info() {
       <AlgorithmHow />
 
       <ImpactSection />
+
+      <ActCTA />
 
       <ContactFooter />
     </div>
