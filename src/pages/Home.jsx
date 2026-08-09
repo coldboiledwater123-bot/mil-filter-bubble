@@ -9,7 +9,7 @@ export default function Home() {
     <div
       className="relative min-h-screen overflow-hidden"
       style={{
-        background: 'radial-gradient(ellipse at 50% 40%, #c9deec 0%, #a3c4d8 60%, #8aafc7 100%)',
+        background: 'radial-gradient(ellipse at 50% 40%, #d4eaf7 0%, #bdd9ed 60%, #a8cee6 100%)',
       }}
     >
       <style>{`
