@@ -51,13 +51,13 @@ export default function Bubble3D({ size = 200, className = '' }) {
           style={{ width: size, height: size }}
           aria-label="Click to pop the bubble"
         >
-          {/* ── 细薄边缘 ── */}
+          {/* ── 白色轮廓边 ── */}
           <span
             className="absolute inset-0 animate-bob-slow rounded-full"
             style={{
               boxShadow: `
-                inset 0 0 0 1px rgba(255,255,255,0.35),
-                0 0 0 0.5px rgba(180,200,220,0.18)
+                inset 0 0 0 2px rgba(255,255,255,0.55),
+                0 0 0 1px rgba(255,255,255,0.30)
               `,
             }}
           />
@@ -67,11 +67,11 @@ export default function Bubble3D({ size = 200, className = '' }) {
             className="absolute inset-0 rounded-full"
             style={{
               background: `
-                radial-gradient(ellipse 35% 28% at 22% 32%, rgba(245,120,170,0.22) 0%, transparent 100%),
-                radial-gradient(ellipse 28% 22% at 68% 28%, rgba(130,200,245,0.18) 0%, transparent 100%),
-                radial-gradient(ellipse 30% 25% at 75% 62%, rgba(140,235,175,0.20) 0%, transparent 100%),
-                radial-gradient(ellipse 25% 20% at 30% 70%, rgba(245,200,110,0.16) 0%, transparent 100%),
-                radial-gradient(ellipse 20% 18% at 55% 48%, rgba(210,160,255,0.12) 0%, transparent 100%)
+                radial-gradient(ellipse 35% 28% at 22% 32%, rgba(245,120,170,0.32) 0%, transparent 100%),
+                radial-gradient(ellipse 28% 22% at 68% 28%, rgba(130,200,245,0.28) 0%, transparent 100%),
+                radial-gradient(ellipse 30% 25% at 75% 62%, rgba(140,235,175,0.30) 0%, transparent 100%),
+                radial-gradient(ellipse 25% 20% at 30% 70%, rgba(245,200,110,0.24) 0%, transparent 100%),
+                radial-gradient(ellipse 20% 18% at 55% 48%, rgba(210,160,255,0.18) 0%, transparent 100%)
               `,
             }}
           />
