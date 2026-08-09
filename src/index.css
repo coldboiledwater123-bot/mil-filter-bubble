@@ -183,3 +183,19 @@ body {
     transform: translateX(-50%);
   }
 }
+
+/* 肥皂泡薄膜干涉彩虹 —— 边缘颜色随"视角"流动 */
+@keyframes iridescence {
+  0%, 100% {
+    filter: hue-rotate(0deg);
+  }
+  25% {
+    filter: hue-rotate(25deg);
+  }
+  50% {
+    filter: hue-rotate(-15deg);
+  }
+  75% {
+    filter: hue-rotate(15deg);
+  }
+}
