@@ -3,7 +3,7 @@ import ParticleText from '../components/ParticleText'
 
 export default function Home() {
   return (
-    <div className="relative flex min-h-screen flex-col items-center overflow-hidden bg-cream px-6 pt-[10vh] text-center sm:pt-[14vh] md:pt-[18vh]">
+    <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-cream px-6 text-center">
       <style>{`
         @keyframes fade-in-up {
           from { opacity: 0; transform: translateY(30px); }
@@ -16,7 +16,7 @@ export default function Home() {
       `}</style>
 
       {/* 粒子文本 */}
-      <div className="h-[200px] w-full max-w-5xl sm:h-[300px] md:h-[380px]">
+      <div className="h-[160px] w-full max-w-5xl sm:h-[240px] md:h-[300px]">
         <ParticleText
           text="Are you in filter Bubbles?"
           color="#22333b"
@@ -34,7 +34,7 @@ export default function Home() {
 
       {/* 副标题 + 按钮 —— 粒子聚拢后淡入 */}
       <p
-        className="animate-fade-in-up mt-6 max-w-2xl text-lg leading-relaxed text-clay sm:mt-8 sm:text-xl lg:text-2xl"
+        className="animate-fade-in-up mt-2 max-w-2xl text-lg leading-relaxed text-clay sm:mt-4 sm:text-xl lg:text-2xl"
         style={{ animationDelay: '2s' }}
       >
         Everything you scroll, watch, and like
@@ -43,7 +43,7 @@ export default function Home() {
       </p>
 
       <div
-        className="animate-fade-in-up mt-12 flex flex-col items-center"
+        className="animate-fade-in-up mt-6 flex flex-col items-center sm:mt-8"
         style={{ animationDelay: '2.4s' }}
       >
         <Link
