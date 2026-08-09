@@ -91,22 +91,22 @@ export default function Home() {
   )
 }
 
-/** 互动泡泡 —— 散布全屏，肥皂泡上升效果，点击戳破 */
+/** 互动泡泡 —— 散布全屏边角，肥皂泡上升效果，点击戳破 */
 function BubbleField() {
-  /* 手机缩小至 55%，sm+ 自然大小；分散在边角避免遮挡主 CTA */
+  /* 尺寸 75-130：手机（375px 宽）约占 1/5-1/3，桌面也不显大 */
   const bubbles = [
-    { size: 115, left: '0%',  top: '6%',  anim: 'animate-bubble-rise',       delay: '0s' },
-    { size: 155, left: '12%', top: '65%', anim: 'animate-bubble-rise-slow',  delay: '2s' },
-    { size: 100, left: '48%', top: '3%',  anim: 'animate-bubble-rise',       delay: '1s' },
-    { size: 135, left: '80%', top: '8%',  anim: 'animate-bubble-rise-slow',  delay: '3.5s' },
-    { size: 140, left: '2%',  top: '38%', anim: 'animate-bubble-rise-slow',  delay: '1.5s' },
-    { size: 110, left: '70%', top: '58%', anim: 'animate-bubble-rise',       delay: '0.7s' },
-    { size: 145, left: '33%', top: '76%', anim: 'animate-bubble-rise-slow',  delay: '4s' },
-    { size:  95, left: '42%', top: '42%', anim: 'animate-bubble-rise',       delay: '2.8s' },
-    { size: 150, left: '85%', top: '35%', anim: 'animate-bubble-rise-slow',  delay: '5s' },
-    { size: 130, left: '18%', top: '18%', anim: 'animate-bubble-rise',       delay: '3.2s' },
-    { size: 105, left: '56%', top: '28%', anim: 'animate-bubble-rise',       delay: '1.8s' },
-    { size: 125, left: '8%',  top: '82%', anim: 'animate-bubble-rise-slow',  delay: '0.4s' },
+    { size:  90, left: '0%',  top: '5%',  anim: 'animate-bubble-rise',       delay: '0s' },
+    { size: 120, left: '10%', top: '62%', anim: 'animate-bubble-rise-slow',  delay: '2s' },
+    { size:  80, left: '45%', top: '2%',  anim: 'animate-bubble-rise',       delay: '1s' },
+    { size: 110, left: '78%', top: '6%',  anim: 'animate-bubble-rise-slow',  delay: '3.5s' },
+    { size: 100, left: '2%',  top: '35%', anim: 'animate-bubble-rise-slow',  delay: '1.5s' },
+    { size:  85, left: '68%', top: '55%', anim: 'animate-bubble-rise',       delay: '0.7s' },
+    { size: 115, left: '30%', top: '74%', anim: 'animate-bubble-rise-slow',  delay: '4s' },
+    { size:  78, left: '40%', top: '40%', anim: 'animate-bubble-rise',       delay: '2.8s' },
+    { size: 130, left: '84%', top: '32%', anim: 'animate-bubble-rise-slow',  delay: '5s' },
+    { size: 105, left: '16%', top: '16%', anim: 'animate-bubble-rise',       delay: '3.2s' },
+    { size:  82, left: '54%', top: '26%', anim: 'animate-bubble-rise',       delay: '1.8s' },
+    { size:  98, left: '6%',  top: '80%', anim: 'animate-bubble-rise-slow',  delay: '0.4s' },
   ]
 
   return (
@@ -122,8 +122,7 @@ function BubbleField() {
             animationDelay: b.delay,
           }}
         >
-          {/* 手机缩小至 52%，sm 以上原始大小 —— 避免遮挡 CTA */}
-          <Bubble3D size={b.size} className="scale-[0.52] sm:scale-100" />
+          <Bubble3D size={b.size} />
         </div>
       ))}
     </div>

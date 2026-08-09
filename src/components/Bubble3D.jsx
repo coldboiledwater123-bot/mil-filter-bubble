@@ -1,15 +1,14 @@
 import { useState, useCallback } from 'react'
 
 /**
- * Bubble3D —— 可点击戳破的肥皂泡
+ * Bubble3D —— 参考真实肥皂泡照片重构
  *
- * 真实肥皂泡质感：
- * - 薄膜干涉彩虹边缘（粉色 → 蓝色 → 绿色 → 金色渐变环）
- * - 流动彩虹 hue-rotate 动画
- * - 明亮双高光
- * - 半透明中心
- *
- * 点击后炸裂成 12 颗彩色粒子，2.2 秒后自动复原。
+ * 质感来源：
+ * - 高度透明（背景可见）
+ * - 不规则的薄膜干涉色斑（多个偏移椭圆渐变叠加，而非同心圆环）
+ * - 极小的锐利高光（模拟点光源反射）
+ * - 细薄边缘
+ * - 点击炸裂
  */
 const PARTICLE_COUNT = 12
 
@@ -25,7 +24,7 @@ export default function Bubble3D({ size = 200, className = '' }) {
       id: i,
       angle: (i / PARTICLE_COUNT) * 360 + (Math.random() - 0.5) * 40,
       distance: size * 0.5 + Math.random() * size * 0.7,
-      size: 6 + Math.random() * 14,
+      size: 4 + Math.random() * 10,
       delay: Math.random() * 0.15,
       tint: ['lagoon', 'mint', 'rose', 'amber'][i % 4],
       cx: Math.random() * 0.3 + 0.35,
@@ -42,72 +41,72 @@ export default function Bubble3D({ size = 200, className = '' }) {
   return (
     <div
       className={`relative inline-flex items-center justify-center ${className}`}
-      style={{ width: size * 1.3, height: size * 1.3 }}
+      style={{ width: size * 1.2, height: size * 1.2 }}
     >
       {!popped ? (
-        /* 主泡泡 */
         <button
           type="button"
           onClick={handlePop}
-          className="group relative cursor-pointer rounded-full transition-transform hover:scale-110 active:scale-90"
+          className="group relative cursor-pointer rounded-full transition-transform hover:scale-110 active:scale-95"
           style={{ width: size, height: size }}
           aria-label="Click to pop the bubble"
         >
-          {/* ── 流动彩虹环（薄膜干涉外缘）── */}
+          {/* ── 细薄边缘 ── */}
           <span
             className="absolute inset-0 animate-bob-slow rounded-full"
             style={{
-              animation: 'iridescence 4s ease-in-out infinite',
-              background: `
-                radial-gradient(circle at 50% 50%,
-                  transparent 55%,
-                  rgba(255,140,180,0.18) 64%,
-                  rgba(140,210,255,0.20) 72%,
-                  rgba(160,240,190,0.18) 80%,
-                  rgba(255,200,130,0.15) 88%,
-                  rgba(200,170,255,0.12) 96%
-                )
+              boxShadow: `
+                inset 0 0 0 1px rgba(255,255,255,0.35),
+                0 0 0 0.5px rgba(180,200,220,0.18)
               `,
             }}
           />
 
-          {/* ── 主体：半透明气泡 + 双高光 ── */}
+          {/* ── 不规则油膜色斑（偏移椭圆模拟薄膜干涉）── */}
           <span
             className="absolute inset-0 rounded-full"
             style={{
               background: `
-                radial-gradient(circle at 30% 24%, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0) 16%),
-                radial-gradient(circle at 72% 68%, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 18%),
-                radial-gradient(circle at 50% 50%, rgba(165,226,240,0.25) 0%, rgba(130,210,228,0.18) 35%, rgba(47,212,168,0.08) 65%, rgba(160,218,232,0.03) 100%)
-              `,
-              boxShadow: `
-                inset 0 0 30px rgba(255,255,255,0.20),
-                inset 0 -6px 16px rgba(20,184,214,0.04),
-                0 0 0 1px rgba(255,255,255,0.22),
-                0 0 0 2.5px rgba(180,210,240,0.12),
-                0 2px 16px rgba(20,184,214,0.04)
+                radial-gradient(ellipse 35% 28% at 22% 32%, rgba(245,120,170,0.22) 0%, transparent 100%),
+                radial-gradient(ellipse 28% 22% at 68% 28%, rgba(130,200,245,0.18) 0%, transparent 100%),
+                radial-gradient(ellipse 30% 25% at 75% 62%, rgba(140,235,175,0.20) 0%, transparent 100%),
+                radial-gradient(ellipse 25% 20% at 30% 70%, rgba(245,200,110,0.16) 0%, transparent 100%),
+                radial-gradient(ellipse 20% 18% at 55% 48%, rgba(210,160,255,0.12) 0%, transparent 100%)
               `,
             }}
           />
 
-          {/* ── 顶部高光弧 ── */}
+          {/* ── 小锐利高光（模拟点光源）── */}
           <span
-            className="pointer-events-none absolute inset-0 rounded-full"
+            className="pointer-events-none absolute rounded-full"
             style={{
-              background: `
-                radial-gradient(ellipse at 35% 20%, rgba(255,255,255,0.50) 0%, rgba(255,255,255,0) 35%)
-              `,
+              left: '28%',
+              top: '22%',
+              width: '10%',
+              height: '9%',
+              background: 'radial-gradient(ellipse at 40% 35%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.4) 30%, transparent 70%)',
+            }}
+          />
+
+          {/* ── 底部微弱二次高光 ── */}
+          <span
+            className="pointer-events-none absolute rounded-full"
+            style={{
+              right: '22%',
+              bottom: '20%',
+              width: '6%',
+              height: '5%',
+              background: 'radial-gradient(ellipse at 40% 35%, rgba(255,255,255,0.5) 0%, transparent 70%)',
             }}
           />
         </button>
       ) : (
-        /* 炸裂粒子 */
         particles.map((p) => {
           const colors = {
             lagoon: 'rgba(20,184,214,0.7)',
             mint: 'rgba(47,212,168,0.7)',
-            rose: 'rgba(255,150,200,0.7)',
-            amber: 'rgba(255,200,100,0.7)',
+            rose: 'rgba(245,120,170,0.7)',
+            amber: 'rgba(245,200,110,0.7)',
           }
           return (
             <span
