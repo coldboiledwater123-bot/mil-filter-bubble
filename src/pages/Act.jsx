@@ -554,42 +554,43 @@ function FooterCTA() {
   )
 }
 
-/* ================= 泡泡装饰 ================= */
+/* ================= 泡泡装饰（随页面滚动 + 可点击戳破） ================= */
 
 function BubbleField() {
+  /* 分布在页面两侧，零散不遮挡内容区 */
   const bubbles = [
-    { size: 90, left: '1%', top: '8%', delay: '0s' },
-    { size: 120, left: '12%', top: '60%', delay: '2s' },
-    { size: 70, left: '48%', top: '3%', delay: '1s' },
-    { size: 105, left: '80%', top: '12%', delay: '3.5s' },
-    { size: 85, left: '4%', top: '40%', delay: '1.5s' },
-    { size: 75, left: '68%', top: '55%', delay: '0.7s' },
-    { size: 110, left: '32%', top: '72%', delay: '4s' },
-    { size: 65, left: '42%', top: '38%', delay: '2.8s' },
-    { size: 95, left: '86%', top: '35%', delay: '5s' },
-    { size: 80, left: '18%', top: '18%', delay: '3.2s' },
-    { size: 68, left: '56%', top: '28%', delay: '1.8s' },
-    { size: 100, left: '8%', top: '80%', delay: '0.4s' },
+    { size: 85, left: '1%',  top: '3%',  delay: '0s' },
+    { size: 110, left: '3%',  top: '25%', delay: '2s' },
+    { size: 65, left: '1%',  top: '50%', delay: '1s' },
+    { size: 95, left: '4%',  top: '70%', delay: '3.5s' },
+    { size: 75, left: '1%',  top: '88%', delay: '1.5s' },
+    { size: 100, left: '88%', top: '8%',  delay: '0.7s' },
+    { size: 70, left: '92%', top: '32%', delay: '4s' },
+    { size: 115, left: '86%', top: '55%', delay: '2.8s' },
+    { size: 80, left: '94%', top: '75%', delay: '5s' },
+    { size: 90, left: '90%', top: '92%', delay: '3.2s' },
   ]
 
   return (
-    <div className="pointer-events-none fixed inset-0 overflow-hidden" aria-hidden style={{ zIndex: 0 }}>
+    <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden style={{ zIndex: 10 }}>
       <style>{`
         @keyframes act-bubble-rise {
-          0%   { transform: translateY(0) translateX(0); opacity: 0.7; }
-          50%  { transform: translateY(-60px) translateX(-4px); opacity: 0.8; }
-          100% { transform: translateY(-120px) translateX(0); opacity: 0.7; }
+          0%   { transform: translateY(0) translateX(0); opacity: 0.65; }
+          25%  { transform: translateY(-25px) translateX(6px); opacity: 0.75; }
+          50%  { transform: translateY(-50px) translateX(-4px); opacity: 0.8; }
+          75%  { transform: translateY(-75px) translateX(3px); opacity: 0.7; }
+          100% { transform: translateY(-100px) translateX(0); opacity: 0.65; }
         }
-        .animate-act-bubble { animation: act-bubble-rise 7s ease-in-out infinite; }
+        .animate-act-bubble { animation: act-bubble-rise 6s ease-in-out infinite; }
       `}</style>
       {bubbles.map((b, i) => (
         <div
           key={i}
-          className="absolute animate-act-bubble"
+          className="pointer-events-auto absolute animate-act-bubble"
           style={{
             left: b.left,
             top: b.top,
-            zIndex: 0,
+            zIndex: 1,
             animationDelay: b.delay,
           }}
         >
@@ -611,7 +612,7 @@ export default function Act() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="relative min-h-screen bg-cream">
       <ProgressBar current="/act" />
 
       <BubbleField />
