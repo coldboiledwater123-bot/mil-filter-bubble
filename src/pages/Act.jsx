@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import ProgressBar from '../components/ProgressBar'
+import Bubble3D from '../components/Bubble3D'
 
 /* ================= 数据 ================= */
 
@@ -553,6 +554,52 @@ function FooterCTA() {
   )
 }
 
+/* ================= 泡泡装饰 ================= */
+
+function BubbleField() {
+  const bubbles = [
+    { size: 90, left: '1%', top: '8%', delay: '0s' },
+    { size: 120, left: '12%', top: '60%', delay: '2s' },
+    { size: 70, left: '48%', top: '3%', delay: '1s' },
+    { size: 105, left: '80%', top: '12%', delay: '3.5s' },
+    { size: 85, left: '4%', top: '40%', delay: '1.5s' },
+    { size: 75, left: '68%', top: '55%', delay: '0.7s' },
+    { size: 110, left: '32%', top: '72%', delay: '4s' },
+    { size: 65, left: '42%', top: '38%', delay: '2.8s' },
+    { size: 95, left: '86%', top: '35%', delay: '5s' },
+    { size: 80, left: '18%', top: '18%', delay: '3.2s' },
+    { size: 68, left: '56%', top: '28%', delay: '1.8s' },
+    { size: 100, left: '8%', top: '80%', delay: '0.4s' },
+  ]
+
+  return (
+    <div className="pointer-events-none fixed inset-0 overflow-hidden" aria-hidden style={{ zIndex: 0 }}>
+      <style>{`
+        @keyframes act-bubble-rise {
+          0%   { transform: translateY(0) translateX(0); opacity: 0.7; }
+          50%  { transform: translateY(-60px) translateX(-4px); opacity: 0.8; }
+          100% { transform: translateY(-120px) translateX(0); opacity: 0.7; }
+        }
+        .animate-act-bubble { animation: act-bubble-rise 7s ease-in-out infinite; }
+      `}</style>
+      {bubbles.map((b, i) => (
+        <div
+          key={i}
+          className="absolute animate-act-bubble"
+          style={{
+            left: b.left,
+            top: b.top,
+            zIndex: 0,
+            animationDelay: b.delay,
+          }}
+        >
+          <Bubble3D size={b.size} />
+        </div>
+      ))}
+    </div>
+  )
+}
+
 /* ================= 主组件 ================= */
 
 export default function Act() {
@@ -566,6 +613,8 @@ export default function Act() {
   return (
     <div className="min-h-screen bg-cream">
       <ProgressBar current="/act" />
+
+      <BubbleField />
 
       <Hero />
 

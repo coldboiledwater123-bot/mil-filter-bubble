@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import ProgressBar from '../components/ProgressBar'
 import Bubble3D from '../components/Bubble3D'
+import Ballpit from '../components/Ballpit'
 
 /* ================= 数据：全球信息茧房案例 ================= */
 
@@ -635,7 +636,19 @@ export default function Info() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="relative min-h-screen bg-cream">
+      {/* 球池背景 —— 浅色透明球，固定层 */}
+      <div className="pointer-events-none fixed inset-0 z-0 opacity-50">
+        <Ballpit
+          count={80}
+          colors={[0xd4eaf7, 0xb8e6d8, 0xf0d4e8]}
+          minSize={0.3}
+          maxSize={0.8}
+          gravity={0.3}
+          followCursor={false}
+        />
+      </div>
+
       <ProgressBar current="/info" />
 
       {/* 3D 卡片轮播专用 CSS */}
