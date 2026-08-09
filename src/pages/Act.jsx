@@ -557,18 +557,27 @@ function FooterCTA() {
 /* ================= 泡泡装饰（随页面滚动 + 可点击戳破） ================= */
 
 function BubbleField() {
-  /* 分布在页面两侧，零散不遮挡内容区 */
   const bubbles = [
-    { size: 85, left: '1%',  top: '3%',  delay: '0s' },
-    { size: 110, left: '3%',  top: '25%', delay: '2s' },
-    { size: 65, left: '1%',  top: '50%', delay: '1s' },
-    { size: 95, left: '4%',  top: '70%', delay: '3.5s' },
-    { size: 75, left: '1%',  top: '88%', delay: '1.5s' },
-    { size: 100, left: '88%', top: '8%',  delay: '0.7s' },
-    { size: 70, left: '92%', top: '32%', delay: '4s' },
-    { size: 115, left: '86%', top: '55%', delay: '2.8s' },
-    { size: 80, left: '94%', top: '75%', delay: '5s' },
-    { size: 90, left: '90%', top: '92%', delay: '3.2s' },
+    /* 左侧 */
+    { size: 85, left: '5%',  top: '2%',  delay: '0s' },
+    { size: 50, left: '8%',  top: '12%', delay: '3.1s' },
+    { size: 110, left: '6%',  top: '22%', delay: '2s' },
+    { size: 60, left: '10%', top: '35%', delay: '4.5s' },
+    { size: 65, left: '7%',  top: '48%', delay: '1s' },
+    { size: 95, left: '5%',  top: '58%', delay: '3.5s' },
+    { size: 45, left: '9%',  top: '68%', delay: '0.3s' },
+    { size: 75, left: '6%',  top: '80%', delay: '1.5s' },
+    { size: 55, left: '8%',  top: '90%', delay: '5.2s' },
+    /* 右侧 */
+    { size: 100, left: '83%', top: '5%',  delay: '0.7s' },
+    { size: 55, left: '86%', top: '16%', delay: '2.4s' },
+    { size: 70, left: '80%', top: '28%', delay: '4s' },
+    { size: 115, left: '84%', top: '38%', delay: '2.8s' },
+    { size: 50, left: '87%', top: '50%', delay: '1.2s' },
+    { size: 80, left: '82%', top: '60%', delay: '5s' },
+    { size: 65, left: '85%', top: '72%', delay: '3.8s' },
+    { size: 90, left: '81%', top: '82%', delay: '3.2s' },
+    { size: 45, left: '86%', top: '93%', delay: '0.8s' },
   ]
 
   return (
